@@ -1,0 +1,128 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#layout {
+    /*porcentaje para q se haga responsive*/
+    width: 80%;
+    height: 400px;
+    margin: 0px auto;
+    display: grid;
+    /*le da un espaciado entre elementos grid*/
+    grid-gap: 10px;
+    border: 3px solid orangered;
+    padding: 10px;
+    /*defino dos columnas o sea en este caso va ver 2 cajas de un lado y 2 cajas del otro*/
+    /*grid-template-columns: calc(50% - 10px) calc(50% - 10px);*/
+    /*defino 4 columnas puedo manipular los porcentajes como quiero no hace falta poner lo de calc*/
+    grid-template-columns: calc(25% - 10px) calc(25% - 10px) calc(25% - 10px) calc(25% - 10px);
+    /*otra manera de definir las columnas donde 4 es el numero de columnas*/
+    grid-template-columns: repeat(4, 25%);
+    /*tambien podemos definir q porcentaje tiene cada una*/
+    grid-template-columns: repeat(2, 25% 15% 6%);
+    /*otra manera de definir columnas fraccion*/
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    /*filas se puede igual q con columnas jugar con los porcentajes etc..*/
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 3fr;
+}
+
+#layout .caja {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 20px;
+    border: 4px solid #222;
+    background: gray;
+}
+
+#layout .red {
+    /*columnas expandir desde linea 1 hasta 3 se estiraria a lo ancho 
+    (para fijarce las lineas en firefox inspeccionar y en layour overlay grid display line numbers)*/
+    grid-column-start: 1;
+    grid-column-end: 3;
+    background: red;
+}
+
+#layout .green {
+    grid-row-start: 2;
+    grid-row-end: 4;
+    background: green;
+}
+
+#layout .blue {
+    background: blue;
+}
+
+#layout .pink {
+    background: pink;
+}
+
+#layout .orangered {
+    background: orangered;
+}
+
+#layout .orange {
+    /*columnas expandir desde linea 1 hasta 3 se estiraria a lo ancho*/
+    grid-column-start: 1;
+    grid-column-end: 3;
+    /*otra manera de expandirla*/
+    grid-column: 2/3;
+    background: orange;
+}
+
+
+
+
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+    border: 3px solid orangered;
+    padding: 10px;
+}
+    
+.div1 {
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    border: 1px solid #222;
+}
+
+.div2 {
+    grid-column: span 2 / span 2;
+    grid-column-start: 4;
+    border: 1px solid #222;
+}
+
+.div3 {
+    grid-column: span 2 / span 2;
+    grid-column-start: 4;
+    grid-row-start: 2;
+    border: 1px solid #222;
+}
+
+.div4 {
+    grid-column: span 5 / span 5;
+    grid-row: span 2 / span 2;
+    grid-row-start: 3;
+    border: 1px solid #222;
+}
+
+.div5 {
+    grid-column: span 2 / span 2;
+    grid-row-start: 5;
+    border: 1px solid #222;
+}
+
+.div6 {
+    grid-column: span 3 / span 3;
+    grid-column-start: 3;
+    grid-row-start: 5;
+    border: 1px solid #222;
+}
+        
